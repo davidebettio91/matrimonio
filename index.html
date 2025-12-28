@@ -26,12 +26,13 @@
     nav li { cursor: pointer; font-size: 14px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO ADJUSTED */
+    /* HERO RESPONSIVE */
     header { 
-      height: 75vh; min-height: 500px;
+      height: 60vh; min-height: 400px;
       position: relative;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; color: white; overflow: hidden;
+      background-color: #000;
     }
     .hero-images {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -40,61 +41,67 @@
     .hero-img {
       width: 50%; height: 100%;
       background-size: cover; 
-      /* AJUSTE AQUÍ: 'top center' para no cortar cabezas */
-      background-position: top center; 
-      filter: brightness(0.6);
+      background-position: center 15%; /* Enfoca las caras en la parte superior */
+      filter: brightness(0.7);
     }
-    header h1, header p { position: relative; z-index: 2; color: white; margin: 0; }
-    header h1 { font-size: clamp(2.8rem, 9vw, 5.5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.4); }
-    header p { font-size: 1.4rem; margin-top: 10px; letter-spacing: 3px; font-weight: 300; }
+    header h1, header p { position: relative; z-index: 2; color: white; margin: 0; padding: 0 10px; }
+    header h1 { font-size: clamp(2rem, 7vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
+    header p { font-size: 1.2rem; margin-top: 10px; letter-spacing: 2px; font-weight: 400; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
 
     /* COUNTDOWN */
-    .countdown-section { padding: 80px 20px 40px 20px; text-align: center; }
-    .countdown-section h2 { margin-bottom: 35px; font-size: 2.5rem; }
-    .countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .countdown-section { padding: 60px 20px 30px 20px; text-align: center; }
+    .countdown-section h2 { margin-bottom: 25px; font-size: 2rem; }
+    .countdown { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .circle { 
-      width: 110px; height: 110px; border-radius: 50%;
+      width: 85px; height: 85px; border-radius: 50%;
       background: white; display: flex; flex-direction: column; align-items: center; justify-content: center; 
-      border: 2px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.1); color: var(--negro-suave);
+      border: 2px solid var(--dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.1); color: var(--negro-suave);
     }
-    .circle span { font-size: 2.2rem; font-weight: bold; line-height: 1; color: var(--dorado); }
-    .circle small { font-size: 0.75rem; text-transform: uppercase; margin-top: 5px; color: var(--gris); }
+    .circle span { font-size: 1.6rem; font-weight: bold; line-height: 1; color: var(--dorado); }
+    .circle small { font-size: 0.6rem; text-transform: uppercase; margin-top: 2px; }
 
-    /* SECTIONS */
-    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    /* SECTION COMMON */
+    section { padding: 40px 15px; max-width: 1100px; margin: auto; }
 
     /* LOCATION */
-    #localizzazione { max-width: 800px; text-align: center; }
-    .loc-content { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .loc-text { margin-bottom: 25px; font-size: 1.1rem; color: var(--gris); }
-    .loc-details { margin-bottom: 30px; font-weight: bold; color: var(--negro-suave); font-size: 1.1rem; }
+    #localizzazione { max-width: 850px; text-align: center; }
+    .loc-content { background: white; padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .loc-details { margin: 20px 0; font-weight: bold; color: var(--negro-suave); font-size: 1.1rem; line-height: 1.8; }
+    
+    /* BOTÓN CÓMO LLEGAR */
+    .btn-maps { 
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #4285F4; color: white; padding: 12px 25px; 
+      border-radius: 30px; text-decoration: none; font-weight: bold; 
+      margin: 15px 0 25px 0; transition: 0.3s; font-size: 1rem;
+    }
+    .btn-maps:hover { background: #357ae8; transform: translateY(-2px); }
+
     .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #eee; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
     /* ITINERARIO */
-    .itinerario-grid { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 35px; }
+    .itinerario-grid { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 25px; }
     .itinerario-item { 
-      background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
-      width: 100%; max-width: 600px; display: flex; flex-direction: row; align-items: center; text-align: left;
-      gap: 25px; border-left: 6px solid var(--dorado);
+      background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+      width: 100%; max-width: 500px; display: flex; flex-direction: row; align-items: center; text-align: left;
+      gap: 20px; border-left: 5px solid var(--dorado);
     }
-    .it-icon { font-size: 2rem; color: var(--dorado); min-width: 50px; text-align: center; }
-    .it-info .hora { font-weight: 700; color: var(--dorado); display: block; font-size: 1.2rem; }
-    .it-info p { margin: 0; font-size: 1.1rem; color: var(--negro-suave); text-transform: uppercase; letter-spacing: 1px; }
+    .it-icon { font-size: 1.5rem; color: var(--dorado); min-width: 40px; text-align: center; }
+    .it-info .hora { font-weight: 700; color: var(--dorado); display: block; font-size: 1.1rem; }
+    .it-info p { margin: 0; font-size: 1rem; color: var(--negro-suave); text-transform: uppercase; }
 
     /* RSVP */
-    .rsvp-box { background: white; padding: 60px 20px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; max-width: 700px; margin: 60px auto; border: 1px solid var(--dorado); }
-    .btn-google { background: var(--dorado); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 30px; transition: 0.3s; font-size: 1.2rem; box-shadow: 0 4px 20px rgba(192, 57, 43, 0.3); border: none; cursor: pointer; }
-    .btn-google:hover { transform: translateY(-3px); opacity: 0.95; }
+    .rsvp-box { background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; max-width: 600px; margin: 40px auto; border: 1px solid var(--dorado); }
+    .btn-google { background: var(--dorado); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; font-size: 1.1rem; }
 
-    footer { text-align: center; padding: 40px; background: #fff; border-top: 1px solid #eee; font-size: 1rem; }
+    footer { text-align: center; padding: 30px; background: #fff; font-size: 0.9rem; }
 
     @media (max-width: 600px) {
-      .itinerario-item { flex-direction: column; text-align: center; padding: 20px; }
-      .loc-content { padding: 20px; }
-      nav ul { gap: 15px; }
-      /* En móviles, ajustamos un poco más la posición para asegurar las caras */
-      .hero-img { background-position: 50% 15%; } 
+      header { height: 50vh; }
+      nav ul { gap: 15px; padding: 10px; }
+      .circle { width: 75px; height: 75px; }
+      .map-container { padding-top: 75%; } /* Mapa un poco más alto en móvil */
     }
   </style>
 </head>
@@ -112,37 +119,40 @@
 <header id="home">
   <div class="hero-images">
     <div class="hero-img" style="background-image: url('IMG/foto1.JPG');"></div>
-    <div class="hero-img" style="background-image: url('IMG/foto2.jpeg'); border-left: 2px solid var(--blanco);"></div>
+    <div class="hero-img" style="background-image: url('IMG/foto2.jpeg'); border-left: 1px solid var(--blanco);"></div>
   </div>
   <h1>Agnese & Davide 💕</h1>
   <p>30 MAGGIO 2026</p>
 </header>
 
 <section class="countdown-section">
-  <h2>Ci sposiamo il 30 maggio!</h2>
+  <h2>Ci sposiamo!</h2>
   <div id="countdown" class="countdown"></div>
 </section>
 
 <section id="localizzazione">
   <h2>Location</h2>
   <div class="loc-content">
-    <p class="loc-text">
-      In questa sezione trovi gli indirizzi della cerimonia e del ricevimento, insieme alle informazioni utili per raggiungerli senza stress.<br><br>
-      Dai un’occhiata ai dettagli così potrai organizzare al meglio il tuo arrivo.
-    </p>
+    <p>In questa sezione trovi l'indirizzo della cerimonia e del ricevimento.<br>Ti aspettiamo per festeggiare insieme!</p>
+    
     <div class="loc-details">
-      <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Villa Sagredo<br>
-      via Sagredo 3/A 30030 Vigonovo, Venezia<br>
-      <i class="fa-solid fa-phone" style="color:var(--dorado)"></i> 049503174
+      <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> <strong>Villa Sagredo</strong><br>
+      Via Sagredo 3/A, 30030 Vigonovo (VE)<br>
+      <i class="fa-solid fa-phone" style="color:var(--dorado)"></i> 049 503174
     </div>
+
+    <a href="https://maps.app.goo.gl/Yp7Gv3m7Y5kY8x1W7" target="_blank" class="btn-maps">
+      <i class="fa-solid fa-route"></i> Come arrivare
+    </a>
+
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1175.0075932788234!2d11.999212516954774!3d45.39432698546577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ec5b9f5c9d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e1!3m2!1ses!2sit!4v1766918014403!5m2!1ses!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.474665428456!2d12.0084511!3d45.419951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0559f212269%3A0x7d6c6e7552538186!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1715850000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
 
 <section id="itinerario">
-  <h2>Programma del Grande Giorno</h2>
+  <h2>Programma</h2>
   <div class="itinerario-grid">
     <div class="itinerario-item">
       <div class="it-icon"><i class="fa-solid fa-ring"></i></div>
@@ -170,7 +180,7 @@
 <section id="rsvp">
   <div class="rsvp-box">
     <h2>Sarai dei nostri?</h2>
-    <p>Per favore, conferma la tua presenza entro il 1° aprile 2026.</p>
+    <p>Conferma la tua presenza entro il 1° aprile 2026.</p>
     <a href="https://forms.gle/qWp9LoqaNccJg4HTA" target="_blank" class="btn-google">
       <i class="fa-solid fa-calendar-check"></i> Conferma Partecipazione
     </a>
@@ -180,17 +190,14 @@
 <footer><p>© 2026 Agnese & Davide · Fatto con ❤️</p></footer>
 
 <script>
-  function scrollToId(id) { window.scrollTo({ top: document.getElementById(id).offsetTop - 70, behavior: "smooth" }); }
+  function scrollToId(id) { window.scrollTo({ top: document.getElementById(id).offsetTop - 60, behavior: "smooth" }); }
 
   function updateCountdown() {
     const target = new Date("2026-05-30T15:00:00");
     const diff = target - new Date();
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
-    const d = Math.floor(diff/86400000);
-    const h = Math.floor((diff%86400000)/3600000);
-    const m = Math.floor((diff%3600000)/60000);
-    const s = Math.floor((diff%60000)/1000);
+    const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
     el.innerHTML = `
       <div class="circle"><span>${d}</span><small>Giorni</small></div>
       <div class="circle"><span>${h}</span><small>Ore</small></div>
@@ -203,4 +210,3 @@
 </script>
 </body>
 </html>
-
