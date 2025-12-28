@@ -20,11 +20,13 @@
     body { margin: 0; font-family: 'Lato', sans-serif; background: var(--rojo-claro); color: var(--gris); line-height: 1.6; overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--negro-suave); text-align: center; margin-top: 0; }
 
+    /* NAVBAR */
     nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000; }
     nav ul { display: flex; justify-content: center; gap: 20px; list-style: none; padding: 15px; margin: 0; }
     nav li { cursor: pointer; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); white-space: nowrap; }
     nav li:hover { color: var(--dorado); }
 
+    /* HERO */
     header { 
       height: 80vh; min-height: 550px;
       position: relative;
@@ -38,9 +40,13 @@
     header h1 { font-size: clamp(2.2rem, 8vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
     header p { font-size: 1.3rem; margin-top: 10px; letter-spacing: 3px; text-shadow: 1px 1px 8px rgba(0,0,0,0.7); }
 
+    /* SECTIONS */
     section { padding: 40px 15px; max-width: 900px; margin: auto; }
+
+    /* CARDS */
     .card { background: white; padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
 
+    /* COUNTDOWN */
     .countdown-item {
       width: 70px; height: 70px; border-radius: 50%; background: white; 
       display: flex; flex-direction: column; align-items: center; justify-content: center; 
@@ -49,9 +55,17 @@
     .countdown-item span { font-size: 1.3rem; font-weight: bold; color: var(--dorado); line-height: 1; }
     .countdown-item small { font-size: 0.55rem; text-transform: uppercase; margin-top: 2px; }
 
+    /* ITINERARIO */
     .itinerario-item { background: white; padding: 18px; border-radius: 12px; width: 100%; max-width: 450px; display: flex; align-items: center; gap: 20px; border-left: 5px solid var(--dorado); margin: 10px auto; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .it-icon { font-size: 1.4rem; color: var(--dorado); min-width: 35px; text-align: center; }
+    .it-icon { font-size: 1.4rem; color: var(--dorado); min-width: 35px; text-align: center; display: flex; justify-content: center; align-items: center; }
+    
+    /* FILTRO PARA LA IMAGEN DE LA TORTA (LA TIÑE DE COLOR DORADO/ROJO) */
+    .cake-img {
+      width: 30px; height: 30px; 
+      filter: invert(27%) sepia(51%) saturate(2853%) hue-rotate(341deg) brightness(85%) contrast(88%);
+    }
 
+    /* MAPS */
     .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
     .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #ddd; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
@@ -96,7 +110,7 @@
   <div class="card">
     <h3>Benvenuti!</h3>
     <p style="font-style: italic;">
-      Stiamo preparando il nostro grande giorno e abbiamo creado este espacio per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
+      Stiamo preparando il nostro grande giorno e abbiamo creato questo spazio per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
       Nella sezione <strong>“RSVP”</strong> potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
       Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
     </p>
@@ -116,7 +130,7 @@
     </a>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2803.626354431718!2d12.008451376663558!3d45.40172673795669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ec5b9f5f5d111%3A0x715ddef38d7c5bd5!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.2162638361625!2d12.01255867683952!3d45.42512123599988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -127,7 +141,17 @@
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div><span style="font-weight:bold; color:var(--dorado)">15:00</span><p style="margin:0">Cerimonia</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div><span style="font-weight:bold; color:var(--dorado)">16:00</span><p style="margin:0">Aperitivo a Buffet</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div><span style="font-weight:bold; color:var(--dorado)">19:00</span><p style="margin:0">Cena</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div><span style="font-weight:bold; color:var(--dorado)">21:00</span><p style="margin:0">Taglio della Torta</p></div></div>
+    
+    <div class="itinerario-item">
+        <div class="it-icon">
+            <img src="IMG/wedding-cake.png" alt="Torta" class="cake-img">
+        </div>
+        <div>
+            <span style="font-weight:bold; color:var(--dorado)">21:00</span>
+            <p style="margin:0">Taglio della Torta</p>
+        </div>
+    </div>
+
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div><span style="font-weight:bold; color:var(--dorado)">21:30</span><p style="margin:0">Festa Serale</p></div></div>
   </div>
 </section>
@@ -148,7 +172,7 @@
     <p>La vostra presenza è per noi il regalo più grande. <br>Se desiderate contribuire alla nostra vita insieme, potete farlo qui:</p>
     <div style="margin-top:20px; background:#f9f9f9; padding:20px; border-radius:15px; border:1px dashed var(--dorado); display:inline-block; width:100%; max-width:500px;">
       <span style="font-family:monospace; font-weight:bold;" id="ibanText">IT95G0306234210000002381414</span><br>
-      <button class="btn-copy" style="background:var(--negro-suave); color:white; border:none; padding:10px 20px; border-radius:25px; cursor:pointer; margin-top:15px; font-weight:bold;" onclick="copyIban()">
+      <button style="background:var(--negro-suave); color:white; border:none; padding:10px 20px; border-radius:25px; cursor:pointer; margin-top:15px; font-weight:bold;" onclick="copyIban()">
         <i class="fa-solid fa-copy"></i> <span id="btnText">Copia IBAN</span>
       </button>
     </div>
