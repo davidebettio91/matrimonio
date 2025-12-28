@@ -26,7 +26,7 @@
     nav li { cursor: pointer; font-size: 14px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO */
+    /* HERO ADJUSTED */
     header { 
       height: 75vh; min-height: 500px;
       position: relative;
@@ -39,7 +39,9 @@
     }
     .hero-img {
       width: 50%; height: 100%;
-      background-size: cover; background-position: center;
+      background-size: cover; 
+      /* AJUSTE AQUÍ: 'top center' para no cortar cabezas */
+      background-position: top center; 
       filter: brightness(0.6);
     }
     header h1, header p { position: relative; z-index: 2; color: white; margin: 0; }
@@ -47,27 +49,21 @@
     header p { font-size: 1.4rem; margin-top: 10px; letter-spacing: 3px; font-weight: 300; }
 
     /* COUNTDOWN */
-    .countdown-section {
-      padding: 80px 20px 40px 20px;
-      text-align: center;
-    }
+    .countdown-section { padding: 80px 20px 40px 20px; text-align: center; }
     .countdown-section h2 { margin-bottom: 35px; font-size: 2.5rem; }
     .countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
     .circle { 
       width: 110px; height: 110px; border-radius: 50%;
-      background: white; 
-      display: flex; flex-direction: column; align-items: center; justify-content: center; 
-      border: 2px solid var(--dorado);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      color: var(--negro-suave);
+      background: white; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+      border: 2px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.1); color: var(--negro-suave);
     }
     .circle span { font-size: 2.2rem; font-weight: bold; line-height: 1; color: var(--dorado); }
     .circle small { font-size: 0.75rem; text-transform: uppercase; margin-top: 5px; color: var(--gris); }
 
-    /* SECTIONS COMMON */
+    /* SECTIONS */
     section { padding: 60px 20px; max-width: 1100px; margin: auto; }
 
-    /* LOCALIZZAZIONE / LOCATION */
+    /* LOCATION */
     #localizzazione { max-width: 800px; text-align: center; }
     .loc-content { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
     .loc-text { margin-bottom: 25px; font-size: 1.1rem; color: var(--gris); }
@@ -87,17 +83,8 @@
     .it-info p { margin: 0; font-size: 1.1rem; color: var(--negro-suave); text-transform: uppercase; letter-spacing: 1px; }
 
     /* RSVP */
-    .rsvp-box { 
-      background: white; padding: 60px 20px; border-radius: 20px; 
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; 
-      max-width: 700px; margin: 60px auto; border: 1px solid var(--dorado);
-    }
-    .btn-google { 
-      background: var(--dorado); color: white; padding: 20px 50px; 
-      border-radius: 50px; text-decoration: none; font-weight: bold; 
-      display: inline-block; margin-top: 30px; transition: 0.3s;
-      font-size: 1.2rem; box-shadow: 0 4px 20px rgba(192, 57, 43, 0.3); border: none; cursor: pointer;
-    }
+    .rsvp-box { background: white; padding: 60px 20px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; max-width: 700px; margin: 60px auto; border: 1px solid var(--dorado); }
+    .btn-google { background: var(--dorado); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 30px; transition: 0.3s; font-size: 1.2rem; box-shadow: 0 4px 20px rgba(192, 57, 43, 0.3); border: none; cursor: pointer; }
     .btn-google:hover { transform: translateY(-3px); opacity: 0.95; }
 
     footer { text-align: center; padding: 40px; background: #fff; border-top: 1px solid #eee; font-size: 1rem; }
@@ -106,6 +93,8 @@
       .itinerario-item { flex-direction: column; text-align: center; padding: 20px; }
       .loc-content { padding: 20px; }
       nav ul { gap: 15px; }
+      /* En móviles, ajustamos un poco más la posición para asegurar las caras */
+      .hero-img { background-position: 50% 15%; } 
     }
   </style>
 </head>
@@ -213,5 +202,4 @@
   updateCountdown();
 </script>
 </body>
-
 </html>
