@@ -82,7 +82,7 @@
     <li onclick="scrollToId('localizzazione')">Location</li>
     <li onclick="scrollToId('itinerario')">Programma</li>
     <li onclick="scrollToId('rsvp')">RSVP</li>
-    <li onclick="scrollToId('regalo')" style="color: var(--dorado);"><i class="fa-solid fa-gift"></i> Regalo</li>
+    <li onclick="scrollToId('regalo')">Regalo</li>
   </ul>
 </nav>
 
@@ -103,7 +103,7 @@
   <div class="card">
     <h3>Benvenuti!</h3>
     <p class="welcome-text">
-      Stiamo preparando il nostro grande giorno e abbiamo creato questo spazio per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
+      Stiamo preparando il nostro grande giorno e abbiamo creato questo espacio per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
       Nella sezione “Conferma presenza” potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
       Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
     </p>
@@ -118,11 +118,11 @@
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Villa Sagredo<br>
       Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
-    <a href="https://maps.app.goo.gl/3A6r9p2PzVp2LgL9A" target="_blank" class="btn-maps">
+    <a href="https://maps.app.goo.gl/w9V9yD9y" target="_blank" class="btn-maps">
       <i class="fa-solid fa-route"></i> Come arrivare
     </a>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.444976721535!2d12.008433376831308!3d45.44073353500207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed055745145b5%3A0x6b772f10b784a32c!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1715000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.442886737333!2d12.00767517654763!3d45.399999971072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ec5321f42d2a9%3A0x6b6680a13c93e43!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -133,7 +133,7 @@
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">15:00</span><p>Cerimonia</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">16:00</span><p>Aperitivo a Buffet</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">19:00</span><p>Cena</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:00</span><p>Taglio della Torta</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-slice"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:00</span><p>Taglio della Torta</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:30</span><p>Festa Serale</p></div></div>
   </div>
 </section>
@@ -180,7 +180,7 @@
     const diff = target - new Date();
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
-    const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+    const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000);
     el.innerHTML = `
       <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
         <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${d}</span><small style="font-size:0.6rem; text-transform:uppercase;">Giorni</small>
