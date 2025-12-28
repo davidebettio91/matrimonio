@@ -22,8 +22,8 @@
 
     /* NAVBAR */
     nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000; }
-    nav ul { display: flex; justify-content: center; gap: 30px; list-style: none; padding: 15px; margin: 0; }
-    nav li { cursor: pointer; font-size: 14px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); }
+    nav ul { display: flex; justify-content: center; gap: 20px; list-style: none; padding: 15px; margin: 0; }
+    nav li { cursor: pointer; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); white-space: nowrap; }
     nav li:hover { color: var(--dorado); }
 
     /* HERO RESPONSIVE */
@@ -43,32 +43,23 @@
     /* SECTIONS */
     section { padding: 40px 15px; max-width: 900px; margin: auto; }
 
-    /* COUNTDOWN */
-    .countdown-section { padding: 50px 20px 20px 20px; text-align: center; }
-    .countdown { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-    .circle { width: 80px; height: 80px; border-radius: 50%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid var(--dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .circle span { font-size: 1.5rem; font-weight: bold; color: var(--dorado); }
-
-    /* CARDS (LOCATION, ITINERARIO, IBAN) */
+    /* CARDS */
     .card { background: white; padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
     
     /* IBAN SECTION */
     .iban-box { margin-top: 20px; background: #f9f9f9; padding: 20px; border-radius: 15px; border: 1px dashed var(--dorado); display: inline-block; width: 100%; max-width: 500px; }
-    .iban-text { font-family: monospace; font-size: clamp(0.9rem, 4vw, 1.2rem); color: var(--negro-suave); font-weight: bold; word-break: break-all; }
+    .iban-text { font-family: monospace; font-size: clamp(0.85rem, 3.5vw, 1.1rem); color: var(--negro-suave); font-weight: bold; word-break: break-all; }
     .btn-copy { background: var(--negro-suave); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; margin-top: 15px; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-copy:hover { background: var(--dorado); }
-
-    /* MAPS BUTTON */
-    .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
-    .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; }
-    .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
     /* ITINERARIO */
     .itinerario-item { background: white; padding: 18px; border-radius: 12px; width: 100%; max-width: 450px; display: flex; align-items: center; gap: 20px; border-left: 5px solid var(--dorado); margin: 10px auto; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     .it-icon { font-size: 1.4rem; color: var(--dorado); min-width: 35px; text-align: center; }
 
-    /* RSVP */
-    .rsvp-box { background: white; padding: 40px 20px; border-radius: 20px; text-align: center; border: 1px solid var(--dorado); }
+    /* MAPS & BUTTONS */
+    .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
+    .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; }
+    .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     .btn-google { background: var(--dorado); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
 
     footer { text-align: center; padding: 30px; font-size: 0.8rem; opacity: 0.8; }
@@ -77,8 +68,8 @@
       .hero-images { flex-direction: column; }
       .hero-img { width: 100%; height: 50%; }
       header { height: 70vh; }
-      nav ul { gap: 12px; padding: 10px; }
-      nav li { font-size: 11px; }
+      nav ul { gap: 10px; padding: 10px; }
+      nav li { font-size: 10px; }
     }
   </style>
 </head>
@@ -90,6 +81,7 @@
     <li onclick="scrollToId('localizzazione')">Location</li>
     <li onclick="scrollToId('itinerario')">Programma</li>
     <li onclick="scrollToId('rsvp')">RSVP</li>
+    <li onclick="scrollToId('regalo')" style="color: var(--dorado);"><i class="fa-solid fa-gift"></i> Regalo</li>
   </ul>
 </nav>
 
@@ -103,8 +95,7 @@
 </header>
 
 <section class="countdown-section">
-  <h2>Ci sposiamo!</h2>
-  <div id="countdown" class="countdown"></div>
+  <div id="countdown" class="countdown" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;"></div>
 </section>
 
 <section id="localizzazione">
@@ -115,11 +106,11 @@
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Villa Sagredo<br>
       Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
-    <a href="https://maps.app.goo.gl/vS1Fp9Z8X8X8X8X8" target="_blank" class="btn-maps">
+    <a href="https://maps.google.com/?q=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
       <i class="fa-solid fa-route"></i> Come arrivare
     </a>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.4756581457194!2d12.008443576856524!3d45.44007993437597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0ecf93f65df%3A0x6d90d3d5f573e04!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1710000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.641880492837!2d12.0125586!3d45.4363248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0f447f5a9f5%3A0x6b801a6b093390c5!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -127,16 +118,16 @@
 <section id="itinerario">
   <h2>Programma</h2>
   <div class="itinerario-grid">
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div class="it-info"><span class="hora">15:00</span><p>Cerimonia</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div class="it-info"><span class="hora">16:00</span><p>Aperitivo a Buffet</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div class="it-info"><span class="hora">19:00</span><p>Cena</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div class="it-info"><span class="hora">21:00</span><p>Taglio della Torta</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div class="it-info"><span class="hora">21:30</span><p>Festa Serale</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">15:00</span><p>Cerimonia</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">16:00</span><p>Aperitivo a Buffet</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">19:00</span><p>Cena</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:00</span><p>Taglio della Torta</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:30</span><p>Festa Serale</p></div></div>
   </div>
 </section>
 
 <section id="rsvp">
-  <div class="rsvp-box">
+  <div class="card" style="border: 1px solid var(--dorado);">
     <h2>Sarai dei nostri?</h2>
     <p>Conferma la presenza entro il 1° aprile 2026.</p>
     <a href="https://forms.gle/qWp9LoqaNccJg4HTA" target="_blank" class="btn-google">
@@ -178,7 +169,17 @@
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
     const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-    el.innerHTML = `<div class="circle"><span>${d}</span><small>Giorni</small></div><div class="circle"><span>${h}</span><small>Ore</small></div><div class="circle"><span>${m}</span><small>Min</small></div><div class="circle"><span>${s}</span><small>Sec</small></div>`;
+    el.innerHTML = `
+      <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
+        <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${d}</span><small style="font-size:0.6rem; text-transform:uppercase;">Giorni</small>
+      </div>
+      <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
+        <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${h}</span><small style="font-size:0.6rem; text-transform:uppercase;">Ore</small>
+      </div>
+      <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
+        <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${m}</span><small style="font-size:0.6rem; text-transform:uppercase;">Min</small>
+      </div>
+    `;
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();
