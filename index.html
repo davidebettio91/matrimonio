@@ -26,7 +26,7 @@
     nav li { cursor: pointer; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); white-space: nowrap; }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO RESPONSIVE */
+    /* HERO */
     header { 
       height: 80vh; min-height: 550px;
       position: relative;
@@ -45,22 +45,25 @@
 
     /* CARDS */
     .card { background: white; padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
-    .welcome-text { font-size: 1.1rem; color: var(--gris); font-style: italic; }
 
-    /* IBAN SECTION */
-    .iban-box { margin-top: 20px; background: #f9f9f9; padding: 20px; border-radius: 15px; border: 1px dashed var(--dorado); display: inline-block; width: 100%; max-width: 500px; }
-    .iban-text { font-family: monospace; font-size: clamp(0.85rem, 3.5vw, 1.1rem); color: var(--negro-suave); font-weight: bold; word-break: break-all; }
-    .btn-copy { background: var(--negro-suave); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; margin-top: 15px; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-copy:hover { background: var(--dorado); }
+    /* COUNTDOWN CIRCLES */
+    .countdown-item {
+      width: 70px; height: 70px; border-radius: 50%; background: white; 
+      display: flex; flex-direction: column; align-items: center; justify-content: center; 
+      border: 2px solid var(--dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .countdown-item span { font-size: 1.3rem; font-weight: bold; color: var(--dorado); line-height: 1; }
+    .countdown-item small { font-size: 0.55rem; text-transform: uppercase; margin-top: 2px; }
 
     /* ITINERARIO */
     .itinerario-item { background: white; padding: 18px; border-radius: 12px; width: 100%; max-width: 450px; display: flex; align-items: center; gap: 20px; border-left: 5px solid var(--dorado); margin: 10px auto; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     .it-icon { font-size: 1.4rem; color: var(--dorado); min-width: 35px; text-align: center; }
 
-    /* MAPS & BUTTONS */
+    /* MAPS */
     .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
-    .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; }
+    .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #ddd; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
     .btn-google { background: var(--dorado); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
 
     footer { text-align: center; padding: 30px; font-size: 0.8rem; opacity: 0.8; }
@@ -68,9 +71,7 @@
     @media (max-width: 600px) {
       .hero-images { flex-direction: column; }
       .hero-img { width: 100%; height: 50%; }
-      header { height: 70vh; }
-      nav ul { gap: 10px; padding: 10px; }
-      nav li { font-size: 10px; }
+      .countdown-item { width: 65px; height: 65px; }
     }
   </style>
 </head>
@@ -95,16 +96,16 @@
   <p>30 MAGGIO 2026</p>
 </header>
 
-<section class="countdown-section">
-  <div id="countdown" class="countdown" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;"></div>
+<section>
+  <div id="countdown" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;"></div>
 </section>
 
 <section id="benvenuti">
   <div class="card">
     <h3>Benvenuti!</h3>
-    <p class="welcome-text">
+    <p style="font-style: italic;">
       Stiamo preparando il nostro grande giorno e abbiamo creato questo spazio per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
-      Nella sezione “RSVP” potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
+      Nella sezione <strong>“RSVP”</strong> potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
       Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
     </p>
   </div>
@@ -113,16 +114,17 @@
 <section id="localizzazione">
   <h2>Location</h2>
   <div class="card">
-    <p>Vi aspettiamo a Villa Sagredo per festeggiare insieme!</p>
-    <div style="margin: 20px 0; font-weight: bold; color: var(--negro-suave);">
-      <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Villa Sagredo<br>
-      Via Sagredo 3/A, 30030 Vigonovo (VE)
+    <p>Vi aspettiamo a <strong>Villa Sagredo</strong> per festeggiare insieme!</p>
+    <div style="margin: 20px 0; font-weight: bold;">
+      <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
+    
     <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
       <i class="fa-solid fa-route"></i> Come arrivare
     </a>
+
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.462719545815!2d12.015694376822165!3d45.4413699710738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0889025095d%3A0xc3f58a52e0430076!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m11!1m3!1d2799.882474720188!2d11.9976860768786!3d45.3943770710731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda79f5c9d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -130,11 +132,11 @@
 <section id="itinerario">
   <h2>Programma</h2>
   <div class="itinerario-grid">
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">15:00</span><p>Cerimonia</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">16:00</span><p>Aperitivo a Buffet</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">19:00</span><p>Cena</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:00</span><p>Taglio della Torta</p></div></div>
-    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div class="it-info"><span class="hora" style="font-weight:bold; color:var(--dorado)">21:30</span><p>Festa Serale</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div><span style="font-weight:bold; color:var(--dorado)">15:00</span><p style="margin:0">Cerimonia</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div><span style="font-weight:bold; color:var(--dorado)">16:00</span><p style="margin:0">Aperitivo a Buffet</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div><span style="font-weight:bold; color:var(--dorado)">19:00</span><p style="margin:0">Cena</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div><span style="font-weight:bold; color:var(--dorado)">21:00</span><p style="margin:0">Taglio della Torta</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div><span style="font-weight:bold; color:var(--dorado)">21:30</span><p style="margin:0">Festa Serale</p></div></div>
   </div>
 </section>
 
@@ -151,10 +153,10 @@
 <section id="regalo">
   <h2>Pensiero per noi</h2>
   <div class="card">
-    <p>La vostra presenza è per noi il regalo più grande. <br>Se desiderate contribuire alla nostra vita insieme o al nostro viaggio di nozze, potete farlo qui:</p>
-    <div class="iban-box">
-      <span class="iban-text" id="ibanText">IT95G0306234210000002381414</span><br>
-      <button class="btn-copy" onclick="copyIban()">
+    <p>La vostra presenza è per noi il regalo più grande. <br>Se desiderate contribuire alla nostra vita insieme, potete farlo qui:</p>
+    <div style="margin-top:20px; background:#f9f9f9; padding:20px; border-radius:15px; border:1px dashed var(--dorado); display:inline-block; width:100%; max-width:500px;">
+      <span style="font-family:monospace; font-weight:bold;" id="ibanText">IT95G0306234210000002381414</span><br>
+      <button class="btn-copy" style="background:var(--negro-suave); color:white; border:none; padding:10px 20px; border-radius:25px; cursor:pointer; margin-top:15px; font-weight:bold;" onclick="copyIban()">
         <i class="fa-solid fa-copy"></i> <span id="btnText">Copia IBAN</span>
       </button>
     </div>
@@ -169,9 +171,8 @@
   function copyIban() {
     const iban = document.getElementById("ibanText").innerText;
     navigator.clipboard.writeText(iban).then(() => {
-      const btnText = document.getElementById("btnText");
-      btnText.innerText = "Copiato!";
-      setTimeout(() => { btnText.innerText = "Copia IBAN"; }, 2000);
+      document.getElementById("btnText").innerText = "Copiato!";
+      setTimeout(() => { document.getElementById("btnText").innerText = "Copia IBAN"; }, 2000);
     });
   }
 
@@ -180,17 +181,17 @@
     const diff = target - new Date();
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
-    const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000);
+    
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+
     el.innerHTML = `
-      <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
-        <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${d}</span><small style="font-size:0.6rem; text-transform:uppercase;">Giorni</small>
-      </div>
-      <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
-        <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${h}</span><small style="font-size:0.6rem; text-transform:uppercase;">Ore</small>
-      </div>
-      <div style="width:75px; height:75px; border-radius:50%; background:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid var(--dorado);">
-        <span style="font-size:1.4rem; font-weight:bold; color:var(--dorado)">${m}</span><small style="font-size:0.6rem; text-transform:uppercase;">Min</small>
-      </div>
+      <div class="countdown-item"><span>${d}</span><small>Giorni</small></div>
+      <div class="countdown-item"><span>${h}</span><small>Ore</small></div>
+      <div class="countdown-item"><span>${m}</span><small>Min</small></div>
+      <div class="countdown-item"><span>${s}</span><small>Sec</small></div>
     `;
   }
   setInterval(updateCountdown, 1000);
