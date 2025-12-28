@@ -45,7 +45,8 @@
 
     /* CARDS */
     .card { background: white; padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
-    
+    .welcome-text { font-size: 1.1rem; color: var(--gris); font-style: italic; }
+
     /* IBAN SECTION */
     .iban-box { margin-top: 20px; background: #f9f9f9; padding: 20px; border-radius: 15px; border: 1px dashed var(--dorado); display: inline-block; width: 100%; max-width: 500px; }
     .iban-text { font-family: monospace; font-size: clamp(0.85rem, 3.5vw, 1.1rem); color: var(--negro-suave); font-weight: bold; word-break: break-all; }
@@ -98,6 +99,17 @@
   <div id="countdown" class="countdown" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;"></div>
 </section>
 
+<section id="benvenuti">
+  <div class="card">
+    <h3>Benvenuti!</h3>
+    <p class="welcome-text">
+      Stiamo preparando il nostro grande giorno e abbiamo creato questo spazio per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
+      Nella sezione “Conferma presenza” potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
+      Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
+    </p>
+  </div>
+</section>
+
 <section id="localizzazione">
   <h2>Location</h2>
   <div class="card">
@@ -106,11 +118,11 @@
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Villa Sagredo<br>
       Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
-    <a href="https://maps.google.com/?q=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
+    <a href="https://maps.app.goo.gl/3A6r9p2PzVp2LgL9A" target="_blank" class="btn-maps">
       <i class="fa-solid fa-route"></i> Come arrivare
     </a>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.641880492837!2d12.0125586!3d45.4363248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0f447f5a9f5%3A0x6b801a6b093390c5!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.444976721535!2d12.008433376831308!3d45.44073353500207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed055745145b5%3A0x6b772f10b784a32c!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1715000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
