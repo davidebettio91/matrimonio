@@ -26,52 +26,41 @@
     nav li { cursor: pointer; font-size: 14px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO */
+    /* HERO CON TU IMAGEN PRINCIPAL */
     header { 
-      height: 75vh; min-height: 500px;
+      height: 85vh; min-height: 500px;
       position: relative;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; color: white; overflow: hidden;
     }
-    .hero-images {
+    .hero-bg {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      display: flex; z-index: 1;
-    }
-    .hero-img {
-      width: 50%; height: 100%;
+      background-image: url('/img/main.JPG');
       background-size: cover; background-position: center;
-      filter: brightness(0.6);
+      filter: brightness(0.7);
+      z-index: 1;
     }
     header h1, header p { position: relative; z-index: 2; color: white; margin: 0; }
-    header h1 { font-size: clamp(2.8rem, 9vw, 5.5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.4); }
-    header p { font-size: 1.4rem; margin-top: 10px; letter-spacing: 3px; font-weight: 300; }
+    header h1 { font-size: clamp(2.8rem, 9vw, 5.5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
+    header p { font-size: 1.5rem; margin-top: 10px; letter-spacing: 4px; font-weight: 400; text-shadow: 1px 1px 10px rgba(0,0,0,0.5); }
+
+    /* SECCIONES */
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
 
     /* COUNTDOWN */
-    .countdown-section {
-      padding: 80px 20px 40px 20px;
-      text-align: center;
-    }
-    .countdown-section h2 { margin-bottom: 35px; font-size: 2.5rem; }
+    .countdown-section { text-align: center; padding: 80px 20px 40px 20px; }
     .countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
     .circle { 
       width: 110px; height: 110px; border-radius: 50%;
-      background: white; 
-      display: flex; flex-direction: column; align-items: center; justify-content: center; 
-      border: 2px solid var(--dorado);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      color: var(--negro-suave);
+      background: white; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+      border: 2px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.1); color: var(--negro-suave);
     }
     .circle span { font-size: 2.2rem; font-weight: bold; line-height: 1; color: var(--dorado); }
     .circle small { font-size: 0.75rem; text-transform: uppercase; margin-top: 5px; color: var(--gris); }
 
-    /* SECTIONS COMMON */
-    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-
-    /* LOCALIZZAZIONE / LOCATION */
-    #localizzazione { max-width: 800px; text-align: center; }
-    .loc-content { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .loc-text { margin-bottom: 25px; font-size: 1.1rem; color: var(--gris); }
-    .loc-details { margin-bottom: 30px; font-weight: bold; color: var(--negro-suave); font-size: 1.1rem; }
+    /* LOCATION */
+    .loc-content { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
+    .loc-details { margin: 25px 0; font-weight: bold; color: var(--negro-suave); font-size: 1.1rem; }
     .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #eee; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
@@ -79,7 +68,7 @@
     .itinerario-grid { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 35px; }
     .itinerario-item { 
       background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
-      width: 100%; max-width: 600px; display: flex; flex-direction: row; align-items: center; text-align: left;
+      width: 100%; max-width: 600px; display: flex; flex-direction: row; align-items: center;
       gap: 25px; border-left: 6px solid var(--dorado);
     }
     .it-icon { font-size: 2rem; color: var(--dorado); min-width: 50px; text-align: center; }
@@ -87,24 +76,14 @@
     .it-info p { margin: 0; font-size: 1.1rem; color: var(--negro-suave); text-transform: uppercase; letter-spacing: 1px; }
 
     /* RSVP */
-    .rsvp-box { 
-      background: white; padding: 60px 20px; border-radius: 20px; 
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; 
-      max-width: 700px; margin: 60px auto; border: 1px solid var(--dorado);
-    }
-    .btn-google { 
-      background: var(--dorado); color: white; padding: 20px 50px; 
-      border-radius: 50px; text-decoration: none; font-weight: bold; 
-      display: inline-block; margin-top: 30px; transition: 0.3s;
-      font-size: 1.2rem; box-shadow: 0 4px 20px rgba(192, 57, 43, 0.3); border: none; cursor: pointer;
-    }
+    .rsvp-box { background: white; padding: 60px 20px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; max-width: 700px; margin: 60px auto; border: 1px solid var(--dorado); }
+    .btn-google { background: var(--dorado); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 30px; transition: 0.3s; font-size: 1.2rem; }
     .btn-google:hover { transform: translateY(-3px); opacity: 0.95; }
 
-    footer { text-align: center; padding: 40px; background: #fff; border-top: 1px solid #eee; font-size: 1rem; }
+    footer { text-align: center; padding: 40px; background: #fff; font-size: 1rem; border-top: 1px solid #eee; }
 
     @media (max-width: 600px) {
-      .itinerario-item { flex-direction: column; text-align: center; padding: 20px; }
-      .loc-content { padding: 20px; }
+      .itinerario-item { flex-direction: column; text-align: center; }
       nav ul { gap: 15px; }
     }
   </style>
@@ -121,10 +100,7 @@
 </nav>
 
 <header id="home">
-  <div class="hero-images">
-    <div class="hero-img" style="background-image: url('IMG/foto1.jpg');"></div>
-    <div class="hero-img" style="background-image: url('IMG/foto2.jpeg'); border-left: 2px solid var(--blanco);"></div>
-  </div>
+  <div class="hero-bg"></div>
   <h1>Agnese & Davide 💕</h1>
   <p>30 MAGGIO 2026</p>
 </header>
@@ -137,10 +113,8 @@
 <section id="localizzazione">
   <h2>Location</h2>
   <div class="loc-content">
-    <p class="loc-text">
-      In questa sezione trovi gli indirizzi della cerimonia e del ricevimento, insieme alle informazioni utili per raggiungerli senza stress.<br><br>
-      Dai un’occhiata ai dettagli così potrai organizzare al meglio il tuo arrivo.
-    </p>
+    <p>In questa sezione trovi gli indirizzi della cerimonia e del ricevimento, insieme alle informazioni utili per raggiungerli senza stress.<br><br>
+    Dai un’occhiata ai dettagli così potrai organizzare al meglio il tuo arrivo.</p>
     <div class="loc-details">
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Villa Sagredo<br>
       via Sagredo 3/A 30030 Vigonovo, Venezia<br>
@@ -155,26 +129,11 @@
 <section id="itinerario">
   <h2>Programma del Grande Giorno</h2>
   <div class="itinerario-grid">
-    <div class="itinerario-item">
-      <div class="it-icon"><i class="fa-solid fa-ring"></i></div>
-      <div class="it-info"><span class="hora">15:00</span><p>Cerimonia</p></div>
-    </div>
-    <div class="itinerario-item">
-      <div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div>
-      <div class="it-info"><span class="hora">16:00</span><p>Aperitivo a Buffet</p></div>
-    </div>
-    <div class="itinerario-item">
-      <div class="it-icon"><i class="fa-solid fa-utensils"></i></div>
-      <div class="it-info"><span class="hora">19:00</span><p>Cena</p></div>
-    </div>
-    <div class="itinerario-item">
-      <div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div>
-      <div class="it-info"><span class="hora">21:00</span><p>Taglio della Torta</p></div>
-    </div>
-    <div class="itinerario-item">
-      <div class="it-icon"><i class="fa-solid fa-music"></i></div>
-      <div class="it-info"><span class="hora">21:30</span><p>Festa Serale</p></div>
-    </div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div class="it-info"><span class="hora">15:00</span><p>Cerimonia</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div class="it-info"><span class="hora">16:00</span><p>Aperitivo a Buffet</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div class="it-info"><span class="hora">19:00</span><p>Cena</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-cake-candles"></i></div><div class="it-info"><span class="hora">21:00</span><p>Taglio della Torta</p></div></div>
+    <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div class="it-info"><span class="hora">21:30</span><p>Festa Serale</p></div></div>
   </div>
 </section>
 
@@ -198,16 +157,8 @@
     const diff = target - new Date();
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
-    const d = Math.floor(diff/86400000);
-    const h = Math.floor((diff%86400000)/3600000);
-    const m = Math.floor((diff%3600000)/60000);
-    const s = Math.floor((diff%60000)/1000);
-    el.innerHTML = `
-      <div class="circle"><span>${d}</span><small>Giorni</small></div>
-      <div class="circle"><span>${h}</span><small>Ore</small></div>
-      <div class="circle"><span>${m}</span><small>Min</small></div>
-      <div class="circle"><span>${s}</span><small>Sec</small></div>
-    `;
+    const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+    el.innerHTML = `<div class="circle"><span>${d}</span><small>Giorni</small></div><div class="circle"><span>${h}</span><small>Ore</small></div><div class="circle"><span>${m}</span><small>Min</small></div><div class="circle"><span>${s}</span><small>Sec</small></div>`;
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();
