@@ -133,7 +133,7 @@
         </a>
 
         <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Agnese+%26+Davide&dates=20260530T130000Z/20260530T230000Z&details=Non+vediamo+l'ora+di+festeggiare+con+voi!&location=Villa+Sagredo,+Via+Sagredo+3/A,+30030+Vigonovo+VE" target="_blank" class="btn-calendar-google">
-          <i class="fa-brands fa-google"></i> Google Calendar
+          <i class="fa-brands fa-google"></i> Google Cal
         </a>
 
         <button onclick="downloadICS()" class="btn-calendar-apple">
@@ -142,7 +142,7 @@
     </div>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.4447432432!2d12.008451!3d45.451842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed05799757657%3A0x64757c9172f913d!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.646985473767!2d12.007675776856525!3d45.43612803527265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ec5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1715850000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -181,7 +181,7 @@
 <section id="regalo">
   <h2>Pensiero per noi</h2>
   <div class="card">
-    <p>Per chi desidera lasciare un contributo, abbiamo deciso di utilizzare questo spazio per condividere l’IBAN del conto dedicato al nostro viaggio di nozze. Ogni pensiero sarà per noi un aiuto prezioso nella realizzazione di questa esperienza:</p>
+    <p>Per chi desidera lasciare un contributo, abbiamo deciso di utilizzare questo espacio per condividere l’IBAN del conto dedicato al nostro viaggio di nozze. Ogni pensiero sarà per noi un aiuto prezioso nella realizzazione di questa esperienza:</p>
     <div style="margin-top:20px; background:#f9f9f9; padding:20px; border-radius:15px; border:1px dashed var(--dorado); display:inline-block; width:100%; max-width:500px;">
       <span style="font-family:monospace; font-weight:bold;" id="ibanText">IT95G0306234210000002381414</span><br>
       <button style="background:var(--negro-suave); color:white; border:none; padding:10px 20px; border-radius:25px; cursor:pointer; margin-top:15px; font-weight:bold;" onclick="copyIban()">
@@ -199,7 +199,8 @@
   function copyIban() {
     const iban = document.getElementById("ibanText").innerText;
     navigator.clipboard.writeText(iban).then(() => {
-      document.getElementById("btnText").innerText = "Copiato!";
+      // Cambio solicitado: "Copiato con amore"
+      document.getElementById("btnText").innerText = "Copiato con amore!";
       setTimeout(() => { document.getElementById("btnText").innerText = "Copia IBAN"; }, 2000);
     });
   }
@@ -257,4 +258,3 @@
 </script>
 </body>
 </html>
-
