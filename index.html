@@ -65,9 +65,10 @@
       filter: invert(27%) sepia(51%) saturate(2853%) hue-rotate(341deg) brightness(85%) contrast(88%);
     }
 
-    /* MAPS */
-    .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 15px 0; }
-    .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #ddd; }
+    /* MAPS & CALENDAR */
+    .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 10px 5px; }
+    .btn-calendar { display: inline-flex; align-items: center; gap: 10px; background: #34A853; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 10px 5px; }
+    .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #ddd; margin-top: 20px; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
     .btn-google { background: var(--dorado); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
@@ -125,12 +126,18 @@
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
     
-    <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
-      <i class="fa-solid fa-route"></i> Come arrivare
-    </a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
+          <i class="fa-solid fa-route"></i> Come arrivare
+        </a>
+
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Agnese+%26+Davide&dates=20260530T130000Z/20260530T230000Z&details=Non+vediamo+l'ora+di+festeggiare+con+voi!&location=Villa+Sagredo,+Via+Sagredo+3/A,+30030+Vigonovo+VE" target="_blank" class="btn-calendar">
+          <i class="fa-solid fa-calendar-plus"></i> Salva in Calendario
+        </a>
+    </div>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.2162638361625!2d12.01255867683952!3d45.42512123599988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.14378418928!2d12.0084333!3d45.395755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed088924b2767%3A0x6799015383f9828!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -215,5 +222,3 @@
 </script>
 </body>
 </html>
-
-
