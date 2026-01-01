@@ -35,10 +35,7 @@
       background-color: #000;
     }
     .hero-images { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: row; z-index: 1; }
-    
-    /* AJUSTE AQUÍ: Cambiado a background-position: top center para que no se corte arriba */
     .hero-img { flex: 1; height: 100%; background-size: cover; background-position: top center; filter: brightness(0.7); }
-    
     header h1, header p { position: relative; z-index: 2; color: white; margin: 0; padding: 0 15px; }
     header h1 { font-size: clamp(2.2rem, 8vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
     header p { font-size: 1.3rem; margin-top: 10px; letter-spacing: 3px; text-shadow: 1px 1px 8px rgba(0,0,0,0.7); }
@@ -131,7 +128,7 @@
     </div>
     
     <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-        <a href="https://maps.google.com/?q=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
+        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.2162638361625!2d12.01255867683952!3d45.42512123599988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v17000000000001" target="_blank" class="btn-maps">
           <i class="fa-solid fa-route"></i> Come arrivare
         </a>
 
@@ -145,7 +142,7 @@
     </div>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.378927438448!2d12.00845137684065!3d45.3934399381714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed9b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.2162638361625!2d12.01255867683952!3d45.42512123599988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v17000000000002" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -201,10 +198,42 @@
 
   function copyIban() {
     const iban = document.getElementById("ibanText").innerText;
-    navigator.clipboard.writeText(iban).then(() => {
-      document.getElementById("btnText").innerText = "Copiato con amore!";
-      setTimeout(() => { document.getElementById("btnText").innerText = "Copia IBAN"; }, 2000);
-    });
+    const btnText = document.getElementById("btnText");
+
+    // Método moderno
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(iban).then(() => {
+        btnText.innerText = "Copiato con amore!";
+        setTimeout(() => { btnText.innerText = "Copia IBAN"; }, 2000);
+      }).catch(err => {
+        fallbackCopyTextToClipboard(iban);
+      });
+    } else {
+      // Método alternativo para navegadores antiguos o sin SSL
+      fallbackCopyTextToClipboard(iban);
+    }
+  }
+
+  function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed"; 
+    textArea.style.left = "-9999px";
+    textArea.style.top = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand('copy');
+      if (successful) {
+        document.getElementById("btnText").innerText = "Copiato con amore!";
+        setTimeout(() => { document.getElementById("btnText").innerText = "Copia IBAN"; }, 2000);
+      }
+    } catch (err) {
+      console.error('Errore durante la copia', err);
+    }
+    document.body.removeChild(textArea);
   }
 
   function downloadICS() {
