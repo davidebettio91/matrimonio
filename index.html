@@ -26,14 +26,14 @@
     nav li { cursor: pointer; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); white-space: nowrap; }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO */
+    /* HERO CORREGIDO PARA NO CORTAR CABEZAS */
     header { 
       height: 80vh; min-height: 550px;
       position: relative;
       display: flex; flex-direction: column; 
       align-items: center; 
-      justify-content: flex-end; /* Texto abajo */
-      padding-bottom: 50px;       /* Margen inferior para el texto */
+      justify-content: flex-end; 
+      padding-bottom: 60px;
       text-align: center; color: white; overflow: hidden;
       background-color: #000;
     }
@@ -43,13 +43,15 @@
       flex: 1; 
       height: 100%; 
       background-size: cover; 
-      background-position: center; /* Centra la imagen para que no se corte arriba */
-      filter: brightness(0.7); 
+      background-repeat: no-repeat;
+      /* 'top center' asegura que las cabezas (parte superior) siempre sean visibles */
+      background-position: top center; 
+      filter: brightness(0.75); 
     }
 
     header h1, header p { position: relative; z-index: 2; color: white; margin: 0; padding: 0 15px; }
-    header h1 { font-size: clamp(2.2rem, 8vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
-    header p { font-size: 1.3rem; margin-top: 10px; letter-spacing: 3px; text-shadow: 1px 1px 8px rgba(0,0,0,0.8); margin-bottom: 10px; }
+    header h1 { font-size: clamp(2.2rem, 8vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.9); }
+    header p { font-size: 1.3rem; margin-top: 10px; letter-spacing: 3px; text-shadow: 1px 1px 8px rgba(0,0,0,0.9); font-weight: bold; }
 
     /* SECTIONS */
     section { padding: 40px 15px; max-width: 900px; margin: auto; }
@@ -75,7 +77,6 @@
       filter: invert(27%) sepia(51%) saturate(2853%) hue-rotate(341deg) brightness(85%) contrast(88%);
     }
 
-    /* MAPS & CALENDAR BUTTONS */
     .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; }
     .btn-calendar-google { display: inline-flex; align-items: center; gap: 10px; background: #34A853; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; }
     .btn-calendar-apple { display: inline-flex; align-items: center; gap: 10px; background: #555; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; border: none; cursor: pointer; font-family: inherit; font-size: 16px; }
@@ -90,8 +91,10 @@
     @media (max-width: 600px) {
       .hero-images { flex-direction: column; }
       .hero-img { width: 100%; height: 50%; }
+      /* En móvil, a veces es mejor centrar si las fotos son muy verticales */
+      .hero-img { background-position: center 10%; } 
       .countdown-item { width: 65px; height: 65px; }
-      header { padding-bottom: 30px; }
+      header { padding-bottom: 40px; }
     }
   </style>
 </head>
@@ -124,7 +127,7 @@
   <div class="card">
     <h3>Benvenuti!</h3>
     <p style="font-style: italic;">
-      Stiamo preparando il nostro grande giorno e abbiamo creato questo <strong>spazio</strong> per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
+      Stiamo preparando il nostro grande giorno e abbiamo creato questo <strong>spazio</strong> per condividere con voi tutte le informazioni utili.<br><br>
       Nella sezione <strong>“RSVP”</strong> potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
       Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
     </p>
@@ -134,27 +137,25 @@
 <section id="localizzazione">
   <h2>Location</h2>
   <div class="card">
-    <p>Vi aspettiamo a <strong>Villa Sagredo</strong> per festeggiare insieme!</p>
+    <p>Vi aspettiamo a <strong>Villa Sagredo</strong>!</p>
     <div style="margin: 20px 0; font-weight: bold;">
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
     
     <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Sagredo,+Vigonovo" target="_blank" class="btn-maps">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
           <i class="fa-solid fa-route"></i> Come arrivare
         </a>
-
         <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Agnese+%26+Davide&dates=20260530T130000Z/20260530T230000Z&details=Non+vediamo+l'ora+di+festeggiare+con+voi!&location=Villa+Sagredo,+Via+Sagredo+3/A,+30030+Vigonovo+VE" target="_blank" class="btn-calendar-google">
           <i class="fa-brands fa-google"></i> Google Calendar
         </a>
-
         <button onclick="downloadICS()" class="btn-calendar-apple">
           <i class="fa-solid fa-calendar-plus"></i> Apple / Outlook
         </button>
     </div>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2803.554165561008!2d12.008984!3d45.385312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0579e000001%3A0x6b49e3d360f15c0a!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.473549641753!2d12.0084518!3d45.4593888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed089f8121651%3A0x67399589a1945170!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -165,17 +166,7 @@
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-ring"></i></div><div><span style="font-weight:bold; color:var(--dorado)">15:00</span><p style="margin:0">Cerimonia</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-glass-cheers"></i></div><div><span style="font-weight:bold; color:var(--dorado)">16:00</span><p style="margin:0">Aperitivo a Buffet</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-utensils"></i></div><div><span style="font-weight:bold; color:var(--dorado)">19:00</span><p style="margin:0">Cena</p></div></div>
-    
-    <div class="itinerario-item">
-        <div class="it-icon">
-            <img src="IMG/wedding-cake.png" alt="Torta" class="cake-img">
-        </div>
-        <div>
-            <span style="font-weight:bold; color:var(--dorado)">21:00</span>
-            <p style="margin:0">Taglio Torta</p>
-        </div>
-    </div>
-
+    <div class="itinerario-item"><div class="it-icon"><img src="IMG/wedding-cake.png" alt="Torta" class="cake-img"></div><div><span style="font-weight:bold; color:var(--dorado)">21:00</span><p style="margin:0">Taglio Torta</p></div></div>
     <div class="itinerario-item"><div class="it-icon"><i class="fa-solid fa-music"></i></div><div><span style="font-weight:bold; color:var(--dorado)">21:30</span><p style="margin:0">Festa Serale</p></div></div>
   </div>
 </section>
@@ -193,7 +184,7 @@
 <section id="regalo">
   <h2>Pensiero per noi</h2>
   <div class="card">
-    <p>Per chi desidera lasciare un contributo, abbiamo deciso di utilizzare questo <strong>spazio</strong> per condividere l’IBAN del conto dedicato al nostro viaggio di nozze. Ogni pensiero sarà per noi un aiuto prezioso nella realizzazione di questa esperienza:</p>
+    <p>Abbiamo deciso di condividere l’IBAN del conto dedicato al nostro viaggio di nozze:</p>
     <div style="margin-top:20px; background:#f9f9f9; padding:20px; border-radius:15px; border:1px dashed var(--dorado); display:inline-block; width:100%; max-width:500px;">
       <span style="font-family:monospace; font-weight:bold;" id="ibanText">IT95G0306234210000002381414</span><br>
       <button style="background:var(--negro-suave); color:white; border:none; padding:10px 20px; border-radius:25px; cursor:pointer; margin-top:15px; font-weight:bold;" onclick="copyIban()">
@@ -211,52 +202,22 @@
   function copyIban() {
     const iban = document.getElementById("ibanText").innerText;
     const btnText = document.getElementById("btnText");
-
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(iban).then(() => {
-        btnText.innerText = "Copiato con amore!";
-        setTimeout(() => { btnText.innerText = "Copia IBAN"; }, 2000);
-      });
-    } else {
-      const textArea = document.createElement("textarea");
-      textArea.value = iban;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      btnText.innerText = "Copiato con amore!";
+    navigator.clipboard.writeText(iban).then(() => {
+      btnText.innerText = "Copiato!";
       setTimeout(() => { btnText.innerText = "Copia IBAN"; }, 2000);
-    }
+    });
   }
 
   function downloadICS() {
     const title = "Matrimonio Agnese & Davide";
-    const location = "Villa Sagredo, Via Sagredo 3/A, 30030 Vigonovo VE";
-    const description = "Non vediamo l'ora di festeggiare con voi!";
     const dateStart = "20260530T150000";
     const dateEnd = "20260531T010000";
-
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Agnese Davide Wedding//IT",
-      "BEGIN:VEVENT",
-      `DTSTART:${dateStart}`,
-      `DTEND:${dateEnd}`,
-      `SUMMARY:${title}`,
-      `LOCATION:${location}`,
-      `DESCRIPTION:${description}`,
-      "END:VEVENT",
-      "END:VCALENDAR"
-    ].join("\n");
-
+    const icsContent = ["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT",`DTSTART:${dateStart}`,`DTEND:${dateEnd}`,`SUMMARY:${title}`,"LOCATION:Villa Sagredo, Vigonovo","END:VEVENT","END:VCALENDAR"].join("\n");
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.setAttribute('download', 'matrimonio-agnese-davide.ics');
-    document.body.appendChild(link);
+    link.setAttribute('download', 'matrimonio.ics');
     link.click();
-    document.body.removeChild(link);
   }
 
   function updateCountdown() {
@@ -264,18 +225,11 @@
     const diff = target - new Date();
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
-    
     const d = Math.floor(diff/86400000);
     const h = Math.floor((diff%86400000)/3600000);
     const m = Math.floor((diff%3600000)/60000);
     const s = Math.floor((diff%60000)/1000);
-
-    el.innerHTML = `
-      <div class="countdown-item"><span>${d}</span><small>Giorni</small></div>
-      <div class="countdown-item"><span>${h}</span><small>Ore</small></div>
-      <div class="countdown-item"><span>${m}</span><small>Min</small></div>
-      <div class="countdown-item"><span>${s}</span><small>Sec</small></div>
-    `;
+    el.innerHTML = `<div class="countdown-item"><span>${d}</span><small>Giorni</small></div><div class="countdown-item"><span>${h}</span><small>Ore</small></div><div class="countdown-item"><span>${m}</span><small>Min</small></div><div class="countdown-item"><span>${s}</span><small>Sec</small></div>`;
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();
