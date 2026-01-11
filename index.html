@@ -26,19 +26,33 @@
     nav li { cursor: pointer; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); white-space: nowrap; }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO */
+    /* HERO MODIFICADO */
     header { 
       height: 80vh; min-height: 550px;
       position: relative;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: flex-end; /* Mueve el contenido al fondo */
+      padding-bottom: 50px;       /* Espacio desde el borde inferior */
       text-align: center; color: white; overflow: hidden;
       background-color: #000;
     }
     .hero-images { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: row; z-index: 1; }
     .hero-img { flex: 1; height: 100%; background-size: cover; background-position: top center; filter: brightness(0.7); }
+    
     header h1, header p { position: relative; z-index: 2; color: white; margin: 0; padding: 0 15px; }
-    header h1 { font-size: clamp(2.2rem, 8vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
-    header p { font-size: 1.3rem; margin-top: 10px; letter-spacing: 3px; text-shadow: 1px 1px 8px rgba(0,0,0,0.7); }
+    header h1 { 
+      font-size: clamp(2.2rem, 8vw, 5rem); 
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.8); /* Sombra más fuerte para lectura */
+    }
+    header p { 
+      font-size: 1.3rem; 
+      margin-top: 5px; 
+      letter-spacing: 3px; 
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.8);
+      margin-bottom: 20px;
+    }
 
     /* SECTIONS */
     section { padding: 40px 15px; max-width: 900px; margin: auto; }
@@ -80,6 +94,7 @@
       .hero-images { flex-direction: column; }
       .hero-img { width: 100%; height: 50%; }
       .countdown-item { width: 65px; height: 65px; }
+      header { padding-bottom: 30px; } /* Menos espacio en móvil */
     }
   </style>
 </head>
@@ -112,7 +127,7 @@
   <div class="card">
     <h3>Benvenuti!</h3>
     <p style="font-style: italic;">
-      Stiamo preparando il nostro grande giorno e abbiamo creato questo <strong>spazio</strong> per condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
+      Stiamo preparando il nostro grande giorno e abbiamo creato questo <strong>spazio</strong> para condividere con voi tutte le informazioni utili: programma, location e dettagli logistici.<br><br>
       Nella sezione <strong>“RSVP”</strong> potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
       Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
     </p>
@@ -128,7 +143,7 @@
     </div>
     
     <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.2162638361625!2d12.01255867683952!3d45.42512123599988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v17000000000001" target="_blank" class="btn-maps">
+        <a href="https://maps.google.com/?q=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
           <i class="fa-solid fa-route"></i> Come arrivare
         </a>
 
@@ -142,7 +157,7 @@
     </div>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.2162638361625!2d12.01255867683952!3d45.42512123599988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed5b9f5f1d111%3A0x515ddf938d7c5bd6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v17000000000002" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.244365314777!2d12.0084513!3d45.4190169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed0889f074465%3A0xc66a5e6270b221d6!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -199,41 +214,12 @@
   function copyIban() {
     const iban = document.getElementById("ibanText").innerText;
     const btnText = document.getElementById("btnText");
-
-    // Método moderno
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(iban).then(() => {
         btnText.innerText = "Copiato con amore!";
         setTimeout(() => { btnText.innerText = "Copia IBAN"; }, 2000);
-      }).catch(err => {
-        fallbackCopyTextToClipboard(iban);
       });
-    } else {
-      // Método alternativo para navegadores antiguos o sin SSL
-      fallbackCopyTextToClipboard(iban);
     }
-  }
-
-  function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.position = "fixed"; 
-    textArea.style.left = "-9999px";
-    textArea.style.top = "0";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    try {
-      const successful = document.execCommand('copy');
-      if (successful) {
-        document.getElementById("btnText").innerText = "Copiato con amore!";
-        setTimeout(() => { document.getElementById("btnText").innerText = "Copia IBAN"; }, 2000);
-      }
-    } catch (err) {
-      console.error('Errore durante la copia', err);
-    }
-    document.body.removeChild(textArea);
   }
 
   function downloadICS() {
@@ -242,7 +228,6 @@
     const description = "Non vediamo l'ora di festeggiare con voi!";
     const dateStart = "20260530T150000";
     const dateEnd = "20260531T010000";
-
     const icsContent = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
@@ -256,7 +241,6 @@
       "END:VEVENT",
       "END:VCALENDAR"
     ].join("\n");
-
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
@@ -271,12 +255,10 @@
     const diff = target - new Date();
     const el = document.getElementById("countdown");
     if (diff <= 0) { el.innerHTML = "<h3>Oggi è il grande giorno! 🎉</h3>"; return; }
-    
     const d = Math.floor(diff/86400000);
     const h = Math.floor((diff%86400000)/3600000);
     const m = Math.floor((diff%3600000)/60000);
     const s = Math.floor((diff%60000)/1000);
-
     el.innerHTML = `
       <div class="countdown-item"><span>${d}</span><small>Giorni</small></div>
       <div class="countdown-item"><span>${h}</span><small>Ore</small></div>
@@ -289,4 +271,3 @@
 </script>
 </body>
 </html>
-
