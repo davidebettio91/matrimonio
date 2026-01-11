@@ -26,75 +26,83 @@
     nav li { cursor: pointer; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: 0.3s; color: var(--negro-suave); white-space: nowrap; }
     nav li:hover { color: var(--dorado); }
 
-    /* HERO CORREGIDO PARA NO CORTAR CABEZAS */
+    /* HERO CORREGIDO: SOLUCIÓN DEFINITIVA PARA LAS CABEZAS */
     header { 
-      height: 80vh; min-height: 550px;
+      height: 85vh; 
+      min-height: 600px;
       position: relative;
-      display: flex; flex-direction: column; 
+      display: flex; 
+      flex-direction: column; 
       align-items: center; 
       justify-content: flex-end; 
-      padding-bottom: 60px;
-      text-align: center; color: white; overflow: hidden;
+      padding-bottom: 40px;
+      text-align: center; 
+      color: white; 
+      overflow: hidden;
       background-color: #000;
     }
-    .hero-images { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: row; z-index: 1; }
-    
-    .hero-img { 
-      flex: 1; 
+
+    .hero-images { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
       height: 100%; 
-      background-size: cover; 
-      background-repeat: no-repeat;
-      /* 'top center' asegura que las cabezas (parte superior) siempre sean visibles */
-      background-position: top center; 
-      filter: brightness(0.75); 
+      display: flex; 
+      z-index: 1; 
+    }
+
+    .hero-images img {
+      width: 50%; /* Dos fotos al 50% cada una */
+      height: 100%;
+      object-fit: cover; /* Mantiene la proporción */
+      object-position: top center; /* ¡IMPORTANTE! Ancla la imagen a la parte de arriba para no cortar cabezas */
+      filter: brightness(0.7);
+    }
+
+    /* Línea blanca divisoria entre las fotos */
+    .hero-images img:first-child {
+      border-right: 1px solid var(--blanco);
     }
 
     header h1, header p { position: relative; z-index: 2; color: white; margin: 0; padding: 0 15px; }
-    header h1 { font-size: clamp(2.2rem, 8vw, 5rem); text-shadow: 2px 2px 15px rgba(0,0,0,0.9); }
-    header p { font-size: 1.3rem; margin-top: 10px; letter-spacing: 3px; text-shadow: 1px 1px 8px rgba(0,0,0,0.9); font-weight: bold; }
+    header h1 { font-size: clamp(2rem, 7vw, 4.5rem); text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+    header p { font-size: 1.2rem; margin-top: 5px; letter-spacing: 3px; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
 
     /* SECTIONS */
     section { padding: 40px 15px; max-width: 900px; margin: auto; }
-
-    /* CARDS */
     .card { background: white; padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
 
     /* COUNTDOWN */
     .countdown-item {
       width: 70px; height: 70px; border-radius: 50%; background: white; 
       display: flex; flex-direction: column; align-items: center; justify-content: center; 
-      border: 2px solid var(--dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 2px solid var(--dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 10px;
     }
     .countdown-item span { font-size: 1.3rem; font-weight: bold; color: var(--dorado); line-height: 1; }
-    .countdown-item small { font-size: 0.55rem; text-transform: uppercase; margin-top: 2px; }
+    .countdown-item small { font-size: 0.55rem; text-transform: uppercase; }
 
     /* ITINERARIO */
     .itinerario-item { background: white; padding: 18px; border-radius: 12px; width: 100%; max-width: 450px; display: flex; align-items: center; gap: 20px; border-left: 5px solid var(--dorado); margin: 10px auto; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .it-icon { font-size: 1.4rem; color: var(--dorado); min-width: 35px; text-align: center; display: flex; justify-content: center; align-items: center; }
-    
-    .cake-img {
-      width: 30px; height: 30px; 
-      filter: invert(27%) sepia(51%) saturate(2853%) hue-rotate(341deg) brightness(85%) contrast(88%);
-    }
+    .it-icon { font-size: 1.4rem; color: var(--dorado); min-width: 35px; text-align: center; display: flex; justify-content: center; }
+    .cake-img { width: 30px; height: 30px; filter: invert(27%) sepia(51%) saturate(2853%) hue-rotate(341deg) brightness(85%) contrast(88%); }
 
+    /* BOTONES */
     .btn-maps { display: inline-flex; align-items: center; gap: 10px; background: #4285F4; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; }
     .btn-calendar-google { display: inline-flex; align-items: center; gap: 10px; background: #34A853; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; }
-    .btn-calendar-apple { display: inline-flex; align-items: center; gap: 10px; background: #555; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; border: none; cursor: pointer; font-family: inherit; font-size: 16px; }
-    
+    .btn-calendar-apple { display: inline-flex; align-items: center; gap: 10px; background: #555; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 5px; border: none; cursor: pointer; font-family: inherit; }
+    .btn-google { background: var(--dorado); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
+
     .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #ddd; margin-top: 20px; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-    .btn-google { background: var(--dorado); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
 
     footer { text-align: center; padding: 30px; font-size: 0.8rem; opacity: 0.8; }
 
     @media (max-width: 600px) {
       .hero-images { flex-direction: column; }
-      .hero-img { width: 100%; height: 50%; }
-      /* En móvil, a veces es mejor centrar si las fotos son muy verticales */
-      .hero-img { background-position: center 10%; } 
-      .countdown-item { width: 65px; height: 65px; }
-      header { padding-bottom: 40px; }
+      .hero-images img { width: 100%; height: 50%; }
+      .hero-images img:first-child { border-right: none; border-bottom: 1px solid var(--blanco); }
+      header { height: 75vh; }
     }
   </style>
 </head>
@@ -112,8 +120,8 @@
 
 <header id="home">
   <div class="hero-images">
-    <div class="hero-img" style="background-image: url('IMG/foto1.jpeg');"></div>
-    <div class="hero-img" style="background-image: url('IMG/foto2.jpeg'); border-left: 2px solid var(--blanco);"></div>
+    <img src="IMG/foto1.jpeg" alt="Agnese e Davide 1">
+    <img src="IMG/foto2.jpeg" alt="Agnese e Davide 2">
   </div>
   <h1>Agnese & Davide 💕</h1>
   <p>30 MAGGIO 2026</p>
@@ -129,7 +137,7 @@
     <p style="font-style: italic;">
       Stiamo preparando il nostro grande giorno e abbiamo creato questo <strong>spazio</strong> per condividere con voi tutte le informazioni utili.<br><br>
       Nella sezione <strong>“RSVP”</strong> potete indicarci se parteciperete: ci aiuterà molto nell’organizzazione.<br><br>
-      Grazie per essere qui. Non vediamo l’ora di festeggiare insieme!
+      Grazie per essere qui!
     </p>
   </div>
 </section>
@@ -142,11 +150,11 @@
       <i class="fa-solid fa-location-dot" style="color:var(--dorado)"></i> Via Sagredo 3/A, 30030 Vigonovo (VE)
     </div>
     
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Sagredo+Vigonovo" target="_blank" class="btn-maps">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <a href="http://googleusercontent.com/maps.google.com/8" target="_blank" class="btn-maps">
           <i class="fa-solid fa-route"></i> Come arrivare
         </a>
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Agnese+%26+Davide&dates=20260530T130000Z/20260530T230000Z&details=Non+vediamo+l'ora+di+festeggiare+con+voi!&location=Villa+Sagredo,+Via+Sagredo+3/A,+30030+Vigonovo+VE" target="_blank" class="btn-calendar-google">
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Agnese+%26+Davide&dates=20260530T130000Z/20260530T230000Z&details=Non+vediamo+l'ora+di+festeggiare+con+voi!&location=Villa+Sagredo" target="_blank" class="btn-calendar-google">
           <i class="fa-brands fa-google"></i> Google Calendar
         </a>
         <button onclick="downloadICS()" class="btn-calendar-apple">
@@ -155,7 +163,7 @@
     </div>
 
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.473549641753!2d12.0084518!3d45.4593888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ed089f8121651%3A0x67399589a1945170!2sVilla%20Sagredo!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="http://googleusercontent.com/maps.google.com/9" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -184,7 +192,7 @@
 <section id="regalo">
   <h2>Pensiero per noi</h2>
   <div class="card">
-    <p>Abbiamo deciso di condividere l’IBAN del conto dedicato al nostro viaggio di nozze:</p>
+    <p>Abbiamo decidido di condividere l’IBAN per il nostro viaggio di nozze:</p>
     <div style="margin-top:20px; background:#f9f9f9; padding:20px; border-radius:15px; border:1px dashed var(--dorado); display:inline-block; width:100%; max-width:500px;">
       <span style="font-family:monospace; font-weight:bold;" id="ibanText">IT95G0306234210000002381414</span><br>
       <button style="background:var(--negro-suave); color:white; border:none; padding:10px 20px; border-radius:25px; cursor:pointer; margin-top:15px; font-weight:bold;" onclick="copyIban()">
@@ -201,10 +209,9 @@
 
   function copyIban() {
     const iban = document.getElementById("ibanText").innerText;
-    const btnText = document.getElementById("btnText");
     navigator.clipboard.writeText(iban).then(() => {
-      btnText.innerText = "Copiato!";
-      setTimeout(() => { btnText.innerText = "Copia IBAN"; }, 2000);
+      document.getElementById("btnText").innerText = "Copiato!";
+      setTimeout(() => { document.getElementById("btnText").innerText = "Copia IBAN"; }, 2000);
     });
   }
 
