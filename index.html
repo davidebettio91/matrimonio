@@ -98,6 +98,35 @@
     .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 15px; border: 1px solid #ddd; margin-top: 20px; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+    #scrollToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+        border: none;
+        border-radius: 50%;
+        background-color: #333;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #scrollToTop.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #scrollToTop:hover {
+        background-color: #555;
+    }
+
     footer { text-align: center; padding: 30px; font-size: 0.8rem; opacity: 0.8; }
 
     @media (max-width: 600px) {
@@ -113,12 +142,12 @@
 
 <nav>
   <ul>
-    <li onclick="scrollToId('home')">Inizio</li>
+    <!--<li onclick="scrollToId('home')">Inizio</li>-->
     <li onclick="scrollToId('localizzazione')">Location</li>
     <li onclick="scrollToId('itinerario')">Programma</li>
     <li onclick="scrollToId('rsvp')">RSVP</li>
     <li onclick="scrollToId('regalo')">Regalo</li>
-    <!--<li onclick="scrollToId('dedica')">Dedica</li>-->
+    <li onclick="scrollToId('dedica')">Dedica</li>
   </ul>
 </nav>
 
@@ -213,12 +242,17 @@
   </div>
 </section>
 
-<!--<section id="dedica">
+<section id="dedica">
   <h2>Dedica</h2>
   <div class="card">
-    <p>Dedica per Agnese</p>
+    <p>Lasciaci un ricordo!</p>
+    <p>Vuoi lasciare un pensiero speciale o condividere un momento indimenticabile con noi? Scrivi una dedica o carica una foto😁</p>
   </div>
-</section>-->
+</section>
+
+<button id="scrollToTop" aria-label="Torna su">
+  ↑
+</button>
 
 <footer><p>© 2026 Agnese & Davide · Fatto con ❤️</p></footer>
 
@@ -257,7 +291,26 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 </script>
+<script>
+  const scrollBtn = document.getElementById('scrollToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
 </body>
 </html>
+
 
 
